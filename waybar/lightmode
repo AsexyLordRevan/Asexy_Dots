@@ -1,5 +1,5 @@
-//DISCLAIMER: This is a WIP lightmode for the full setup. Currently only made for Waybar, Rofi, and Discord. IT WILL NOT BE PERFECT
-
+/*DISCLAIMER: This is a WIP lightmode for the full setup. Currently only made for Waybar, Rofi, and Discord. IT WILL NOT BE PERFECT*/
+/*It's also not fully commented, but it still follows more or less the same structure ase the main style.css*/
 @import "colours.css";
 
 * {
