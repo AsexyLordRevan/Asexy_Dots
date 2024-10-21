@@ -1,12 +1,12 @@
-// -*- mode: jsonc -*-
+// General settings
 [{
-    "output": ["eDP-1"],
-    "height": 33,
+    "output": ["eDP-1"], //Most monitors are called DP-1, HDMI-1, or eDP-1
+    "height": 33, //Minimum height
     "spacing": 4,
     "margin-top": 4,
     "margin-left": 4,
     "margin-right": 4,
-    // Modules in order from left to right
+    // From left to right, in order
     "modules-left": [
         "hyprland/workspaces",
         "mpris",
@@ -21,7 +21,8 @@
         "clock",
     ],
     // Module configurations
-    "hyprland/workspaces": {
+//Workspaces for Hyprland. If you use Sway, rename all instances of hyprland/ to sway/    
+"hyprland/workspaces": {
         "all-outputs": true,
         "warp-on-scroll": false,
         "enable-bar-scroll": true,
@@ -40,11 +41,13 @@
             "10": "10"
         }
     },
+//Window title for Hyprland
     "hyprland/window": {
         "format": "{title}",
         "max-length": 30,
         "all-outputs": true
     },
+//Media player title  
     "mpris": {
  	"format": "{status_icon}  {dynamic}",
         "interval": 1,
@@ -57,36 +60,23 @@
 	"dynamic-order": ["artist","title"],
 
     },
-    "hyprland/mode": {
-        "format": "{}"
-    },
-    "hyprland/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-    "tray": {
-        "icon-size": 14,
-        "spacing": 10
-    },
+//Self explanatory
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
     },
+//CPU load, inaccurate on Macbooks, I haven't tested on another machine
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
     },
-    "memory": {
-        "format": "{}% "
-    },
+//Monitor brightness
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon} {percent}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
+//Self explanatory
     "battery": {
         "states": {
             // "good": 95,
@@ -101,8 +91,9 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
+//Volume
     "wireplumber": {
-        "scroll-step": 5, // %, can be a float
+        "scroll-step": 5, // Percentage, can be a float
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}% ",
         "format-bluetooth-muted": " {icon}",
@@ -116,61 +107,6 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" //Mute on click
     }
-},{
-    "output": ["HDMI-A-1"],
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 24, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/mode",
-        "hyprland/scratchpad"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-        "hyprland/window"
-    ],
-    "hyprland/workspaces": {
-        "all-outputs": true,
-        "warp-on-scroll": true,
-        "enable-bar-scroll": true,
-        "format": "{icon}",
-        "format-icons": {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "9": "9",
-            "10": "10"
-        }
-    },
-    "hyprland/window": {
-        "format": "{title}",
-        "max-length": 40,
-        "all-outputs": true
-    },
-    "hyprland/mode": {
-        "format": "{}"
-    },
-    "hyprland/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-    "clock": {
-        "timezone": "America/Los_Angeles",
-        "tooltip-format": "<big>{+%a %d %b %H:%M}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{+%a %d. %b  %H:%M}"
-
-    }
-}]
+},
