@@ -1,5 +1,6 @@
-@import "colours.css";
+@import "colours.css"; /* Loads the colour file (colours.css). It must be symlinked into the same directory as Waybar (Usually ~/.config/waybar). More instructions in the install page*/
 
+//Global settings
 * {
     font-size: 14px;
     border-radius: 5px;
@@ -43,19 +44,7 @@ window#waybar.solo {
     margin: 5px 0 0 10px;
 }
 
-button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    /* box-shadow: inset 0 -3px transparent; */
-    border: none;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-/*
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ebdbb2;
-} */
-
+/*Workspace numbers*/
 #workspaces {
 }
 
@@ -80,45 +69,32 @@ button:hover {
 
 #workspaces button.active {
     color: @yellow;
-    /* box-shadow: inset 0 -3px #ffffff; */
 }
 
 #workspaces button.urgent {
-    background-color: @mauve;
+    color: @mauve;
 }
 
+/*Current window title*/
 #window {
     font-weight: bold;
 }
 
-#mode,
 #clock,
 #battery,
 #backlight,
 #wireplumber,
-#tray,
-
+#mpris
 #load {
     padding: 0 10px;
     background-color: @background2;
     color: @text;
 }
 
-#mpris {
-}
-
-#mode {
-    background-color: @green;
-    color: @base;
-    /* box-shadow: inset 0 -3px #ffffff; */
-}
-
-/* If workspaces is the leftmost module, omit left margin */
+/* Omits margins for leftmost and rightmost workspaces */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
-
-/* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
 }
@@ -153,24 +129,6 @@ label:focus {
 #wireplumber.muted {
     background-color: @blue;
 }
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-}
-
 #mpris.playing {
     color: @text;
 }
-
-#tray menu {
-    font-family: sans-serif;
-}
-
-#scratchpad.empty {
-    background: transparent;
-}
-
