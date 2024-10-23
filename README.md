@@ -1,6 +1,5 @@
 # Dotfiles
-Dotfiles for an Hyprland setup
-
+Dotfiles for an Arch based Hyprland setup.
 
 Includes Hyprland, Waybar, and Rofi. These are mandatory
 
