@@ -34,4 +34,5 @@ You can also just move the files by hand if you have config files outside of .co
 
 For Firefox it's a little more complicated : 
 
-You'll need to go to `about:config` in Firefox, and accept the risks of continuing (It is extremely unlikely anything will breakn)
+You'll need to go to `about:config` in Firefox, and accept the risks of continuing (It is extremely unlikely anything will break)
+
