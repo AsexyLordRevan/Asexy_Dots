@@ -1,4 +1,5 @@
 #!bin/bash
+set -e
 
 #-----Installs/Updates all required packages + updates system-----#
 sudo pacman -S discord, firefox, kitty, rofi, hypr{land,lock,idle,paper}
