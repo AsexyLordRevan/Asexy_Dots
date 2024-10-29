@@ -126,6 +126,7 @@
 
 .title-31SJ6t {
     background-color: var(--background-primary) !important;
+    opacity: 0.7 !important;
 }
 :root {
   --background-image: transparent;
