@@ -60,11 +60,11 @@ This is where the Hypr ecosystem pulls colours from.
 
 To get colours to work with Waybar, Firefox and BetterDiscord, you'll need to symlink it into each directory : 
 
-Waybar: `ln ~/.config/colours/colours.css ~/.config/waybar`
+Waybar: `ln -s ~/.config/colours/colours.css ~/.config/waybar`
 
-BetterDiscord: `ln ~/.config/colours/colours.css ~/.config/betterdiscord/themes`
+BetterDiscord: `ln -s ~/.config/colours/colours.css ~/.config/betterdiscord/themes`
 
-Firefox: `ln ~/.config/colours/colours.css ~/.mozilla/<weird directory name>/Chrome`
+Firefox: `ln -s ~/.config/colours/colours.css ~/.mozilla/<weird directory name>/Chrome`
 <br />
 <br />
 
