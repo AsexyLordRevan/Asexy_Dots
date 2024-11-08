@@ -10,6 +10,8 @@ Most of these (Hyprland, Waybar, Rofi and Firefox) source one of three colour fi
 
 These files must be symlinked into various directories. More instructions are located in Install.md
 
-The .sync.sh function will sync colours across everything, and can be used as a command with an alias, just add this line to your .zshrc (or .bashrc)
+The .sync.sh script will sync colours across everything, and can be used as a command with an alias, just add this line to your .zshrc (or .bashrc)
 
 `alias sync="~/.sync.sh"`
+
+Be warned as it will kill and restart waybar, so make sure that your config files work before running it.
