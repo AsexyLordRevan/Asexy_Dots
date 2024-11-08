@@ -9,9 +9,11 @@ if [[ $(grep '\[Profile[^0]\]' profiles.ini) ]]
 then PROFPATH=$(grep -E '^\[Profile|^Path|^Default' profiles.ini | grep -1 '^Default=1' | grep '^Path' | cut -c6-)
 else PROFPATH=$(grep 'Path=' profiles.ini | sed 's/^Path=//')
 fi
-cp -f ~/.config/colours/colours.css .mozilla/firefox/$PROFPATH/chrome
+cp -f ~/.config/colours/colours.css .mozilla/firefox/$PROFPATH/chrome/colours.css
 echo "Colours synced"
 
 killall waybar &
 waybar &
 hyprctl reload &
+
+echo "Software reloaded"
