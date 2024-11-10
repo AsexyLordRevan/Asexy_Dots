@@ -1,6 +1,6 @@
 #!bin/bash
 set -e
-
+cd ~
 #-----Installs/Updates all required packages + updates system-----#
 sudo pacman -S discord, firefox, kitty, rofi, hypr{land,lock,idle,paper}
 sudo pacman -Syu
@@ -31,22 +31,9 @@ if [-d ~/.config/rofi]; then
 fi
 mv ~/asexy_dots/rofi ~/.config/rofi
 echo "Rofi config installed"
-#-----Colours-----#
-if [-d ~/.config/colours]; then
-  mv ~/.config/colours ~/.config/colours_backup
-fi
-mv ~/asexy_dots/colours ~/.config/colours
-echo "Colours installed"
-ln -s ~/.config/colours/colours.css .config/waybar/
-echo "Waybar themed"
-#Finds Firefox profile directory
-cd ~/.mozilla/firefox/
-if [[ $(grep '\[Profile[^0]\]' profiles.ini) ]]
-then PROFPATH=$(grep -E '^\[Profile|^Path|^Default' profiles.ini | grep -1 '^Default=1' | grep '^Path' | cut -c6-)
-else PROFPATH=$(grep 'Path=' profiles.ini | sed 's/^Path=//')
-fi
-ln -s ~/.config/colours/colours.css .mozilla/firefox/$PROFPATH/chrome
-echo "Firefox themed"
+#-----Sync-----#
+if [-f ~/.config]; then
+  mv ~/asexy_dots/.sync.sh .sync.sh
 #-----Install BetterDiscord-----#
 git clone https://github.com/BetterDiscord/BetterDiscord.git ~/BetterDiscord
 cd BetterDiscord
@@ -55,5 +42,11 @@ pnpm install
 pnpm build
 pnpm inject
 echo "BetterDiscord installed"
-ln -s ~/.config/colours/colours.css ~/.config/BetterDiscord/themes
-echo "BetterDiscord themed"
+#-----Colours-----#
+if [-d ~/.config/colours]; then
+  mv ~/.config/colours ~/.config/colours_backup
+fi
+mv ~/asexy_dots/colours ~/.config/colours
+echo "Colours installed"
+bash .sync.sh
+echo "Colours synced"
