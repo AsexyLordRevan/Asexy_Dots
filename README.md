@@ -1,12 +1,11 @@
 # Dotfiles
 Dotfiles for an Arch based Hyprland setup.
 
-Includes Hyprland, Waybar, and Rofi. These are mandatory
+Includes Hyprland, and Waybar. These are mandatory
 
-There are also config files for BetterDiscord, Firefox, and Kitty.
+There are also config files for BetterDiscord, Rofi, and Kitty.
 
-
-Most of these (Hyprland, Waybar, Rofi and Firefox) source one of three colour files, located in .config/colours/.
+Most of these (Hyprland, Waybar, Rofi and BetterDiscord) source one of three colour files, located in .config/colours/.
 
 These files are synced into various directories. More instructions are located in Install.md
 
