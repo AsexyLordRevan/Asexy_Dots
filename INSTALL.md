@@ -42,7 +42,7 @@ Next search for `toolkit.legacyUserProfileCustomizations.stylesheets` and set it
 
 Now you'll need to move userChrome.css to the Chrome directory which will be in 
 
-`~/.mozilla/<weird directory name>/Chrome`
+`~/.mozilla/<profile directory>/Chrome`
 
 All you need to do is restart Firefox and the new theme should be applied (with missing colours).
 
@@ -58,14 +58,17 @@ This is where the Hypr ecosystem pulls colours from.
 <br />
 <br />
 
-To get colours to work with Waybar, Firefox and BetterDiscord, you'll need to symlink it into each directory : 
+To get colours to work with Hyprland, Waybar, and BetterDiscord, you'll need to symlink it into each directory : 
 
-Waybar: `ln -s ~/.config/colours/colours.css ~/.config/waybar`
+Hyprland: `awk 'NR>=1 && NR<=79' ~/.config/colours/colours.conf > .config/hypr/colours.conf`
 
-BetterDiscord: `ln -s ~/.config/colours/colours.css ~/.config/betterdiscord/themes`
+Waybar: `awk 'NR>=80 && NR<=107' ~/.config/colours/colours.conf > .config/waybar/colours.css`
 
-Firefox: `ln -s ~/.config/colours/colours.css ~/.mozilla/<weird directory name>/Chrome`
+BetterDiscord: `awk 'NR>=80 && NR<=107' ~/.config/colours/colours.conf > .config/betterdiscord/themes/colours.css`
+
+Rofi: `awk 'NR>=109 && NR<=140' ~/.config/colours/colours.conf > .config/rofi/colours.rasi`
+
 <br />
 <br />
 
-Colours don't currently work for Rofi
+Colours don't currently work for Firefox
