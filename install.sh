@@ -11,32 +11,31 @@ echo "Repository cloned"
 #-----Hyprland-----#
 if [-d ~/.config/hypr]; then
   mv ~/.config/hypr ~/.config/hypr_backup
-  mv ~/asexy_dots/hypr ~/.config/hypr
-fi
-echo "Hyprland installed"
+fi mv ~/asexy_dots/hypr ~/.config/hypr
+echo "Hyprland config installed"
 #-----Waybar-----#
 if [-d ~/.config/waybar]; then
   mv ~/.config/waybar ~/.config/waybar_backup
-  mv ~/asexy_dots/waybar ~/.config/waybar
 fi
-echo "Waybar installed"
+mv ~/asexy_dots/waybar ~/.config/waybar
+echo "Waybar config installed"
 #-----Kitty-----#
 if [-d ~/.config/kitty]; then
   mv ~/.config/kitty ~/.config/kitty_backup
-  mv ~/asexy_dots/kitty ~/.config/kitty
 fi
-echo "Kitty installed"
+mv ~/asexy_dots/kitty ~/.config/kitty
+echo "Kitty config installed"
 #-----Rofi-----#
 if [-d ~/.config/rofi]; then
   mv ~/.config/rofi ~/.config/rofi_backup
-  mv ~/asexy_dots/rofi ~/.config/rofi
 fi
-echo "Rofi installed"
+mv ~/asexy_dots/rofi ~/.config/rofi
+echo "Rofi config installed"
 #-----Colours-----#
 if [-d ~/.config/colours]; then
   mv ~/.config/colours ~/.config/colours_backup
-  mv ~/asexy_dots/colours ~/.config/colours
 fi
+mv ~/asexy_dots/colours ~/.config/colours
 echo "Colours installed"
 ln -s ~/.config/colours/colours.css .config/waybar/
 echo "Waybar themed"
