@@ -1,0 +1,15 @@
+font=Fira Code Normal Regular 10
+background-color=#24273aff
+text-color=#cad3f5ff
+width=300
+height=100
+border-size=3
+border-color=#ed8796ff
+border-radius=5
+progress-color=#8aadf4
+max-icon-size=48
+
+default-timeout=3000
+ignore-timeout=1
+max-visible=3
+

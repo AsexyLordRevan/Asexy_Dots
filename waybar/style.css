@@ -1,15 +1,15 @@
-@import "colours.css"; /* Loads the colour file (colours.css). It must be symlinked into the same directory as Waybar (Usually ~/.config/waybar). More instructions in the install page*/
+@import "colours.css";
 
-//Global settings
+
+/*Global Settings*/
 * {
     font-size: 14px;
     border-radius: 5px;
 }
 window#waybar {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-family: SF Pro;
-    background-color: alpha(@background1,0.7);
-    color: @text;
+    background-color: alpha(@bg1,0.7);
+    color: @txt;
     transition-property: background-color;
     transition-duration: .5s;
     padding: 5px;
@@ -17,41 +17,25 @@ window#waybar {
     border: 3px solid @red;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-window#waybar.empty #window {
-    background-color: transparent;
-}
-
-/*
-......#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
+/*Module Settings*/
 .modules-right {
-    margin: 5px 10px 5px 0;
+    margin: 5px 4px 5px 0;
+    padding: 0px 4px 0px 0px;
+    background-color: @bg1;
 }
 .modules-center {
     margin: 5px 0 5 0;
+    font-weight: bold;
 }
 .modules-left {
     margin: 5px 0 0 10px;
 }
 
-/*Workspace numbers*/
-#workspaces {
-}
-
+/*Workspaces*/
 #workspaces button {
     padding: 0 5 4px;
     background-color: transparent;
-    color: @text;
+    color: @txt;
     border-radius: 0;
 }
 
@@ -69,66 +53,44 @@ window#waybar.solo {
 
 #workspaces button.active {
     color: @yellow;
+    /* box-shadow: inset 0 -3px #ffffff; */
 }
 
 #workspaces button.urgent {
     color: @mauve;
 }
 
-/*Current window title*/
-#window {
-    font-weight: bold;
-}
 
-#clock,
-#battery,
-#backlight,
-#wireplumber,
-#mpris
-#load {
-    padding: 0 10px;
-    background-color: @background2;
-    color: @text;
-}
-
-/* Omits margins for leftmost and rightmost workspaces */
+/* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
+
+/* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
 }
 
+
+/*Individual modules*/
 #battery.charging, #battery.plugged {
     background-color: @green;
-    color: @background1;
-}
-
-@keyframes blink {
-    to {
-        background-color: #282828;
-        color: #ebdbb2;
-    }
-}
-
-/* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
-    background-color: #cc241d;
-    color: #ebdbb2;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-label:focus {
-    background-color: #000000;
+    color: @bg1;
 }
 
 #wireplumber.muted {
     background-color: @blue;
 }
-#mpris.playing {
-    color: @text;
+
+#clock,
+#bluetooth,
+#network,
+#battery,
+#backlight,
+#wireplumber{
+    padding: 0 5px 0px 5px;
+    color: @txt;
+}
+#mpris.playing{
+padding-bottom: 4px
 }

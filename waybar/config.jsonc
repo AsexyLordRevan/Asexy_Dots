@@ -1,12 +1,12 @@
-// General settings
+// -*- mode: jsonc -*-
 [{
-    "output": ["eDP-1"], //Most monitors are called DP-1, HDMI-1, or eDP-1
-    "height": 33, //Minimum height
+    "output": ["eDP-1"],
+    "height": 33,
     "spacing": 4,
     "margin-top": 4,
     "margin-left": 4,
     "margin-right": 4,
-    // From left to right, in order
+    // Modules in order from left to right
     "modules-left": [
         "hyprland/workspaces",
         "mpris",
@@ -17,12 +17,13 @@
     "modules-right": [
 	"wireplumber",
         "backlight",
+	"bluetooth",
+	"network",
         "battery",
         "clock",
     ],
     // Module configurations
-//Workspaces for Hyprland. If you use Sway, rename all instances of hyprland/ to sway/    
-"hyprland/workspaces": {
+    "hyprland/workspaces": {
         "all-outputs": true,
         "warp-on-scroll": false,
         "enable-bar-scroll": true,
@@ -41,15 +42,19 @@
             "10": "10"
         }
     },
-//Window title for Hyprland
     "hyprland/window": {
-        "format": "{title}",
+        "format": "{class}",
         "max-length": 30,
-        "all-outputs": true
+        "all-outputs": true,
+	"rewrite": {
+        	"vivaldi-stable": "vivaldi",
+        	"(.*) - fish": "> [$1]"
+	 },
     },
-//Media player title  
     "mpris": {
- 	"format": "{status_icon}  {dynamic}",
+ 	"format": "{status_icon}  {title} -  {artist}",
+	"artist-len": 10,
+	"title-len": 30,
         "interval": 1,
         "dynamic-len": 40,
 	"status-icons": {
@@ -57,47 +62,42 @@
 		"paused": "⏸",
 		"stopped": "",
 	},
-	"dynamic-order": ["artist","title"],
-
+	"on-click": "bash ~/.config/rofi/apps/music.sh",
     },
-//Self explanatory
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
     },
-//CPU load, inaccurate on Macbooks, I haven't tested on another machine
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+    "bluetooth":{
+	"format-connected":"󰂯  {device_battery_percentage}% ",
+	"format-on": "󰂯",
+	"on-click": "bash ~/.config/rofi/apps/bluetooth.sh"
     },
-//Monitor brightness
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon} {percent}",
+        "format": "{icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
-//Self explanatory
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}",
-        "format-alt": "{icon}   {capacity}",
-        "format-charging": " {capacity}",
+        "format": "{icon}   {capacity}",
+        "format-charging": "  {capacity}",
         "format-plugged": " {capacity}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-//Volume
+        //"format-good": "", // An empty format will hide the module
+        //"format-full": "",
+        "format-icons": ["", "", "", "", ""],
+	"on-click": "bash ~/.config/rofi/apps/power.sh"
+	},
     "wireplumber": {
-        "scroll-step": 5, // Percentage, can be a float
+        "scroll-step": 5, // %, can be a float
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}% ",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": "",
+        "format-bluetooth-muted": " {icon} ",
+        "format-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -105,8 +105,14 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["", "", "  "]
         },
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" //Mute on click
-    }
+	"on-click": "",
+    },
+    "network":{
+	"format-wifi":" ",
+	"format-disconnected":"󰖪 ",
+	"format": "󰤭 ",
+	"on-click": "bash ~/.config/rofi/apps/rofi_iwd.sh",
 },
+}]
