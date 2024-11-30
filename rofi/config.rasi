@@ -1,44 +1,45 @@
 configuration{
-    modi: "run,drun";
+    modi: "window,drun";
     lines: 6;
     font: "JetBrainsMono Nerd Font 14";
     show-icons: true;
     icon-theme: "Oranchelo";
     terminal: "st";
+    files-display-format: "{icon} {name}";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
     display-drun: "   Apps ";
-    display-run: "   Run ";
-    display-window: " 﩯  window";
+    display-filebrowser: "   Files ";
+    display-window: " 﩯  Window";
     display-Network: " 󰤨  Network";
     sidebar-mode: true;
 }
 
 @theme "colours"
 
-element-text, element-icon , mode-switcher {
+element-text, element-icon , 	mode-switcher {
     background-color: inherit;
     text-color:       inherit;
 }
 
 window {
     height: 360px;
-    width: 600px
+    width: 600px;
     border: 3px;
-    border-color: @background1;
-    background-color: @red;
+    border-color: @red;
+    background-color: @bg1;
     border-radius: 10px;
 }
 
 mainbox {
-    background-color: @background1;
+    background-color: @bg1;
 }
 
 inputbar {
     children: [prompt,entry];
-    background-color: @background1;
+    background-color: @bg1;
     border-radius: 6px;
     padding: 2px;
 }
@@ -46,7 +47,7 @@ inputbar {
 prompt {
     background-color: @blue;
     padding: 6px;
-    text-color: @bg-col;
+    text-color: @bg1;
     border-radius: 3px;
     margin: 20px 0px 0px 20px;
 }
@@ -59,8 +60,8 @@ textbox-prompt-colon {
 entry {
     padding: 6px;
     margin: 20px 0px 0px 10px;
-    text-color: @text;
-    background-color: @background1;
+    text-color: @txt;
+    background-color: @bg1;
     placeholder:"Search";
 
 }
@@ -69,14 +70,14 @@ listview {
     border: 0px 0px 0px;
     padding: 6px 0px 0px;
     margin: 10px 0px 0px 20px;
-    columns: 2;
-    background-color: @background1;
+    columns: 1;
+    background-color: @bg1;
 }
 
 element {
     padding: 5px;
-    background-color: @background1;
-    text-color: @text  ;
+    background-color: @bg1;
+    text-color: @txt;
 }
 
 element-icon {
@@ -84,7 +85,7 @@ element-icon {
 }
 
 element selected {
-    background-color:  @background1 ;
+    background-color:  @bg2 ;
     text-color: @red  ;
 }
 
@@ -94,13 +95,13 @@ mode-switcher {
 
 button {
     padding: 10px;
-    background-color: @background1;
-    text-color: @blue;
+    background-color: @bg1;
+    text-color: @txt;
     vertical-align: 0.5; 
     horizontal-align: 0.5;
 }
 
 button selected {
-  background-color: @background1;
-  text-color: @fg-col;
+  background-color: @bg1;
+  text-color: @red;
 }
