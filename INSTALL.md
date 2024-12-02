@@ -4,47 +4,41 @@ Disclaimer- This installation guide is written for Arch and Arch derivative dist
 Chances are that these packages and tools are a vailable for your distro, but specific steps might differ.
 
 ## 1- Install all required packages
-Install Hyprland and the rest of the Hypr Ecosystem (Hyprpaper, Hyprlock, Hypridle), Waybar, Rofi, Kitty, Discord, and Firefox with pacman:
+Install Hyprland and the rest of the Hypr Ecosystem (Hyprpaper, Hyprlock, Hypridle), Waybar, Rofi, Kitty, Discord, and Firefox. If you use Arch (or an Arch derivative), you can use Pacman:
+  
+  `pacman -S waybar rofi kitty mako hyprland hyprpaper hyprlock hypridle discord`
 
-  `pacman -S waybar rofi kitty firefox hyprland hyprpaper hyprlock hypridle discord`
-
-You'll need to install the BetterDiscord installer from the AUR:
+You'll need to install the BetterDiscord installer. With arch, you can get it from the AUR:
 
   `yay -S betterdiscord-installer`
+
+If you don't use Arch, these packages will most likely be in your libraries
+
+If you're using another notification daemon, such as Dunst, make sure to remove it, as it will cause conflicts with Mako.
 ## BACKUP YOUR ./CONFIG !!!
 Before installing anything make sure to back up the folders for anything you're installing !
 
+You'll need to delete the original folders, so move them to a back up folder or rename them !
 ## 3a- Manual Install
 Clone this repo:
 
-`git clone https://asexylordrevan/dotfiles/ <install directory>`
+`git clone https://asexylordrevan/asexy_dots/ <install directory>`
 
 Copy each directory to its proper config path:
 
-Hyprland + Hypr Ecosystem: `mv <install directory>/hypr ~/.config`
+Hyprland + Hypr Ecosystem: `mv <install directory>/hypr ~/.config/hypr`
 
-Waybar: `mv <install directory>/waybar ~/.config`
+Waybar: `mv <install directory>/waybar ~/.config/waybar`
 
-Rofi: `mv <install directory>/rofi ~/.config`
+Rofi: `mv <install directory>/rofi ~/.config/rofi`
 
-Kitty: `mv <install directory>/kitty ~/.config`
+Kitty: `mv <install directory>/kitty ~/.config/kitty`
+Mako : `mv <install directory>/kitty ~/.config/mako`
 
 BetterDiscord: `mv <install directory>/betterdiscord/catppuccin.theme.css ~/.config`
 You can also just move the files by hand if you have config files outside of .config.
 <br />
 <br />
-
-For Firefox it's a little more complicated : 
-
-You'll need to go to `about:config` in Firefox, and accept the risks of continuing (It is extremely unlikely anything will break)
-
-Next search for `toolkit.legacyUserProfileCustomizations.stylesheets` and set it to `true`
-
-Now you'll need to move userChrome.css to the Chrome directory which will be in 
-
-`~/.mozilla/<profile directory>/Chrome`
-
-All you need to do is restart Firefox and the new theme should be applied (with missing colours).
 
 ## 4- Colours
 
@@ -52,13 +46,13 @@ To get colours working in the system, you'll need to install the `/colours` dire
 
 To first install the colours, move the directory to .config:
 
-`mv <install directory>/colours ~/.config`
+`mv <install directory>/colours ~/.configc/colours`
 
-This is where the Hypr ecosystem pulls colours from.
+This is where the Hypr ecosystem, Waybar, Rofi, and BetterDiscord pull colours from.
 <br />
 <br />
 
-To get colours to work with Hyprland, Waybar, and BetterDiscord, you'll need to symlink it into each directory : 
+To get colours to work with Hyprland, Waybar, and BetterDiscord, you'll need to move a part of it into each directory : 
 
 Hyprland: `awk 'NR>=1 && NR<=79' ~/.config/colours/colours.conf > .config/hypr/colours.conf`
 
@@ -71,4 +65,11 @@ Rofi: `awk 'NR>=109 && NR<=140' ~/.config/colours/colours.conf > .config/rofi/co
 <br />
 <br />
 
-Colours don't currently work for Firefox
+Colours don't currently work for Mako or Kitty
+
+##5- Sync
+The `.sync.sh` script will sync your colours, and reload your configurations, across Hyprland, Waybar, Rofi, and BetterDiscord
+
+To install it, just move `.sync.sh` to your home directory : `mv ~/<install directory>/.sync.sh ~/.sync.sh`
+
+If you want, reference it as a command in your bashrc or zshrc. Just append `alias sync="bash .sync.sh"`
