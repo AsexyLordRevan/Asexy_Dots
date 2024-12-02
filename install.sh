@@ -31,7 +31,7 @@ if [-d ~/.config/rofi]; then
 fi
 mv ~/asexy_dots/rofi ~/.config/rofi
 echo "Rofi config installed"
-#-----Rofi-----#
+#-----Mako-----#
 if [-d ~/.config/mako]; then
   mv ~/.config/mako ~/.config/mako.backup
 fi
@@ -54,6 +54,7 @@ pnpm install
 pnpm build
 pnpm inject
 echo "BetterDiscord installed"
+mv ~/asexy_dots/BetterDiscord/catppuccin.theme.css ~/.config/BetterDicord/themes/asexy_catppuccin.theme.css
 #-----Colours-----#
 if [-d ~/.config/colours]; then
   mv ~/.config/colours ~/.config/colours_backup
@@ -69,4 +70,5 @@ echo "All dotfiles installed into ~/.config"
 echo "Old configurations are all named '<directory>.backup'"
 echo "Wallpapers are in ~/Documents/wallpapers, all are made with ImageGoNord, check it out on their Github"
 echo "https://github.com/schroedinger-hat/ImageGoNord-pip"
-echo "There is no uninstall script yet, just delete the new folders and remove the '.backup' the old ones"
+echo "An uninstall script is provided in the Dotfiles Repo"
+echo "https://github.com/asexylordrevan/asexy_dots"
