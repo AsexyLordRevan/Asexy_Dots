@@ -6,7 +6,7 @@ sudo pacman -S discord, firefox, kitty, rofi, hypr{land,lock,idle,paper}
 sudo pacman -Syu
 echo "Packages installed, system updated"
 #-----Clones repo-----#
-git clone https://github.com/asexylordrevan/dotfiles ~/asexy_dots
+git clone https://github.com/asexylordrevan/asexy_dots ~/asexy_dots
 echo "Repository cloned"
 #-----Hyprland-----#
 if [-d ~/.config/hypr]; then
