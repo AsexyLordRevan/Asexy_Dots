@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/su root
 #
 # A rofi powered menu to execute power related action.
 # Uses: amixer mpc poweroff reboot rofi rofi-prompt
@@ -9,7 +9,7 @@ lock=''
 sleep='鈴'
 log_out=''
 
-chosen=$(printf '%s;%s;%s;%s;%s\n' "$power_off  Power Off" "$reboot  Reboot" "$lock  Lock Screen" "$sleep  Sleep" \
+chosen=$(printf '%s;%s;%s;%s;%s\n' "$power_off  Power Off" "$reboot  Reboot" "$lock  Lock Screen" "$sleep  Sleep" "Fan On"\
                                    "$log_out  Log Out" \
     | rofi -theme-str '@import "config.rasi"' \
            -dmenu \
@@ -36,6 +36,8 @@ case "$chosen" in
     "$log_out  Log Out")
 	killall Hyprland
         ;;
-
+    "Fan On")
+	systemctl stop t2fanrd
+	;;
     *) exit 1 ;;
 esac

@@ -113,6 +113,6 @@
 	"format-wifi":" ",
 	"format-disconnected":"󰖪 ",
 	"format": "󰤭 ",
-	"on-click": "bash ~/.config/rofi/apps/rofi_iwd.sh",
+	"on-click": "sudo ~/.config/rofi/apps/rofi_iwd.sh",
 },
 }]
