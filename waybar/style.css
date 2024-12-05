@@ -7,7 +7,7 @@
     border-radius: 5px;
 }
 window#waybar {
-    font-family: SF Pro, FontAwesome6Free;
+    font-family: SF Pro, FontAwesome6Free, SymbolsNerdFont;
     background-color: alpha(@bg1,0.7);
     color: @txt;
     transition-property: background-color;
