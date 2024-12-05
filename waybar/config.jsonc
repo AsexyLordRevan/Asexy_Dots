@@ -48,7 +48,6 @@
         "all-outputs": true,
 	"rewrite": {
         	"vivaldi-stable": "vivaldi",
-        	"(.*) - fish": "> [$1]"
 	 },
     },
     "mpris": {
@@ -74,21 +73,17 @@
 	"on-click": "bash ~/.config/rofi/apps/bluetooth.sh"
     },
     "backlight": {
-        // "device": "acpi_video1",
         "format": "{icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
         "states": {
-            "good": 95,
-            "warning": 30,
             "critical": 15
         },
         "format": "{icon}   {capacity}",
         "format-charging": "  {capacity}",
         "format-plugged": " {capacity}",
-        //"format-good": "", // An empty format will hide the module
-        //"format-full": "",
+        "format-full": "",
         "format-icons": ["", "", "", "", ""],
 	"on-click": "bash ~/.config/rofi/apps/power.sh"
 	},
@@ -98,16 +93,7 @@
         "format-bluetooth": "{icon} {volume}% ",
         "format-bluetooth-muted": " {icon} ",
         "format-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", "  "]
-        },
-	"on-click": "",
+        "format-icons": ["", "", "  "],
     },
     "network":{
 	"format-wifi":" ",
