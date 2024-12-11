@@ -6,7 +6,7 @@ if [$USER=root]; then
   exit
 fi
 #-----Installs/Updates all required packages + updates system-----#
-sudo pacman -S discord, firefox, kitty, rofi, hypr{land,lock,idle,paper}
+sudo pacman -S discord vivaldi kitty rofi-wayland hypr{land,lock,idle,paper,pm,polkitagent} grim slurp mako cliphist brightnessctl playerctl
 sudo pacman -Syu
 echo "Packages installed, system updated"
 #-----Clones repo-----#
