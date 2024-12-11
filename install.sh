@@ -44,6 +44,10 @@ mv ~/asexy_dots/wallpapers ~/Documents/wallpapers
 echo "Wallpapers installed"
 #-----Sync-----#
 if [-f ~/.config]; then mv ~/asexy_dots/.sync.sh .sync.sh
+#-----Install fonts-----#
+git clone https://github.com/epk/SF-Mono-Nerd-Font
+mv "SF-Mono-Nerd-Font/SFMono Regular Nerd Font Complete.otf" ".local/share/fonts/SFMono Regular Nerd Font Complete.otf"
+rm -r SF-Mono-Nerd-Font
 #-----Install BetterDiscord-----#
 git clone https://github.com/BetterDiscord/BetterDiscord.git ~/BetterDiscord
 cd BetterDiscord
